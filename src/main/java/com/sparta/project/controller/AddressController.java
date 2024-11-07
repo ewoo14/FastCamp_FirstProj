@@ -1,7 +1,7 @@
 package com.sparta.project.controller;
 
-import com.sparta.project.dto.address.AddressRequest;
-import com.sparta.project.dto.address.AddressResponse;
+import com.sparta.project.dto.AddressRequest;
+import com.sparta.project.dto.AddressResponse;
 import com.sparta.project.service.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

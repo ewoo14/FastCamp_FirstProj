@@ -1,7 +1,7 @@
 package com.sparta.project.controller;
 
-import com.sparta.project.dto.order.OrderRequest;
-import com.sparta.project.dto.order.OrderResponse;
+import com.sparta.project.dto.OrderRequest;
+import com.sparta.project.dto.OrderResponse;
 import com.sparta.project.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

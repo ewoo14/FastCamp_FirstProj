@@ -1,7 +1,7 @@
 package com.sparta.project.controller;
 
-import com.sparta.project.dto.storerequest.StoreRequestCreateRequest;
-import com.sparta.project.dto.storerequest.StoreRequestResponse;
+import com.sparta.project.dto.StoreRequestCreateRequest;
+import com.sparta.project.dto.StoreRequestResponse;
 import com.sparta.project.service.StoreRequestService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

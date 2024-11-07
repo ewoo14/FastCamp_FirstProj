@@ -1,9 +1,9 @@
 package com.sparta.project.controller;
 
-import com.sparta.project.dto.ai.AIChatRequest;
-import com.sparta.project.dto.ai.AIChatResponse;
-import com.sparta.project.dto.ai.AIDescRequest;
-import com.sparta.project.dto.ai.AIDescResponse;
+import com.sparta.project.dto.AIChatRequest;
+import com.sparta.project.dto.AIChatResponse;
+import com.sparta.project.dto.AIDescRequest;
+import com.sparta.project.dto.AIDescResponse;
 import com.sparta.project.service.AIService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

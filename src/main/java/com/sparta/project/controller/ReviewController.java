@@ -1,7 +1,7 @@
 package com.sparta.project.controller;
 
-import com.sparta.project.dto.review.ReviewRequest;
-import com.sparta.project.dto.review.ReviewResponse;
+import com.sparta.project.dto.ReviewRequest;
+import com.sparta.project.dto.ReviewResponse;
 import com.sparta.project.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

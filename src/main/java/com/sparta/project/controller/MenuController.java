@@ -1,7 +1,7 @@
 package com.sparta.project.controller;
 
-import com.sparta.project.dto.menu.MenuRequest;
-import com.sparta.project.dto.menu.MenuResponse;
+import com.sparta.project.dto.MenuRequest;
+import com.sparta.project.dto.MenuResponse;
 import com.sparta.project.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

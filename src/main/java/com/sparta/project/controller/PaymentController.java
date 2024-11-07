@@ -1,7 +1,7 @@
 package com.sparta.project.controller;
 
-import com.sparta.project.dto.payment.PaymentRequest;
-import com.sparta.project.dto.payment.PaymentResponse;
+import com.sparta.project.dto.PaymentRequest;
+import com.sparta.project.dto.PaymentResponse;
 import com.sparta.project.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

@@ -1,9 +1,9 @@
 package com.sparta.project.controller;
 
-import com.sparta.project.dto.user.UserLoginRequest;
-import com.sparta.project.dto.user.UserRegisterRequest;
-import com.sparta.project.dto.user.UserUpdateRequest;
-import com.sparta.project.dto.user.UserResponse;
+import com.sparta.project.dto.UserLoginRequest;
+import com.sparta.project.dto.UserRegisterRequest;
+import com.sparta.project.dto.UserUpdateRequest;
+import com.sparta.project.dto.UserResponse;
 import com.sparta.project.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
