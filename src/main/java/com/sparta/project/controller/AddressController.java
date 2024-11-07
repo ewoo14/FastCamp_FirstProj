@@ -3,16 +3,16 @@ package com.sparta.project.controller;
 import com.sparta.project.dto.address.AddressRequest;
 import com.sparta.project.dto.address.AddressResponse;
 import com.sparta.project.service.AddressService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/users/address")
 public class AddressController {
 
-    @Autowired
     private AddressService addressService;
 
     // 전체 배송지 정보 불러오기

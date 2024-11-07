@@ -3,16 +3,16 @@ package com.sparta.project.controller;
 import com.sparta.project.dto.menu.MenuRequest;
 import com.sparta.project.dto.menu.MenuResponse;
 import com.sparta.project.service.MenuService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/menu")
 public class MenuController {
 
-    @Autowired
     private MenuService menuService;
 
     // 음식점 메뉴 조회
