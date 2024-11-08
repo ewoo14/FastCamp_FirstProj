@@ -1,59 +1,63 @@
-package com.sparta.project.controller;
-
-import com.sparta.project.dto.StoreUpdateRequest;
-import com.sparta.project.dto.StoreResponse;
-import com.sparta.project.service.StoreService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-@RestController
-@RequiredArgsConstructor
-@RequestMapping("/stores")
-public class StoreController {
-
-    private StoreService storeService;
-
-    // 자신의 음식점 조회
-    @GetMapping("/my")
-    public List<StoreResponse> getMyStores() {
-        return storeService.getMyStores();
-    }
-
-    // 음식점 목록 조회
-    @GetMapping
-    public List<StoreResponse> getAllStores(@RequestParam(required = false) Integer page,
-                                            @RequestParam(required = false) Integer size,
-                                            @RequestParam(required = false) String sortBy) {
-        return storeService.findAllStores(page, size, sortBy);
-    }
-
-    // 음식점 상세 조회
-    @GetMapping("/{store_id}")
-    public StoreResponse getStoreById(@PathVariable String store_id) {
-        return storeService.getStoreById(store_id);
-    }
-
-    // 음식점 검색
-    @GetMapping("/search")
-    public List<StoreResponse> searchStores(@RequestParam(required = false) String name,
-                                            @RequestParam(required = false) String categoryId,
-                                            @RequestParam(required = false) Integer page,
-                                            @RequestParam(required = false) Integer size,
-                                            @RequestParam(required = false) String sortBy) {
-        return storeService.searchStores(name, categoryId, page, size, sortBy);
-    }
-
-    // 음식점 정보 수정
-    @PatchMapping("/{store_id}")
-    public StoreResponse updateStore(@PathVariable String store_id, @RequestBody StoreUpdateRequest updateRequest) {
-        return storeService.updateStore(store_id, updateRequest);
-    }
-
-    // 음식점 삭제
-    @DeleteMapping("/{store_id}")
-    public void deleteStore(@PathVariable String store_id) {
-        storeService.deleteStore(store_id);
-    }
-}
+//package com.sparta.project.controller;
+//
+//import com.sparta.project.dto.StoreRequest;
+//import com.sparta.project.dto.StoreResponse;
+//import com.sparta.project.dto.ApiResponse;
+//import com.sparta.project.dto.PageResponse;
+//import com.sparta.project.service.StoreService;
+//import lombok.RequiredArgsConstructor;
+//import org.springframework.web.bind.annotation.*;
+//
+//@RestController
+//@RequiredArgsConstructor
+//@RequestMapping("/stores")
+//public class StoreController {
+//
+//    private final StoreService storeService;
+//
+//    // 자신의 음식점 조회(OWNER)
+//    @GetMapping("/my")
+//    public ApiResponse<PageResponse<StoreResponse>> getMyStores(
+//            @RequestParam("page") int page,
+//            @RequestParam("size") int size,
+//            @RequestParam("sortBy") String sortBy) {
+//        Page<StoreResponse> myStores = storeService.getMyStores(page, size, sortBy);
+//        return ApiResponse.of("message", PageResponse.of(myStores));
+//    }
+//
+//    // 음식점 목록 조회(ALL)
+//    @GetMapping
+//    public ApiResponse<PageResponse<StoreResponse>> getAllStores(
+//            @RequestParam("name") String name,
+//            @RequestParam("categoryId") String categoryId,
+//            @RequestParam("menu") String menu,
+//            @RequestParam("page") int page,
+//            @RequestParam("size") int size,
+//            @RequestParam("sortBy") String sortBy) {
+//        Page<StoreResponse> stores = storeService.getAllStores(name, categoryId, menu, page, size, sortBy);
+//        return ApiResponse.of("message", PageResponse.of(stores));
+//    }
+//
+//    // 음식점 상세 조회(ALL)
+//    @GetMapping("/{store_id}")
+//    public ApiResponse<StoreResponse> getStoreById(@PathVariable String store_id) {
+//        StoreResponse store = storeService.getStoreById(store_id);
+//        return ApiResponse.of("message", store);
+//    }
+//
+//    // 음식점 정보 수정(OWNER, MANAGER, MASTER)
+//    @PatchMapping("/{store_id}")
+//    public ApiResponse<StoreResponse> updateStore(
+//            @PathVariable String store_id,
+//            @RequestBody StoreRequest storeRequest) {
+//        StoreResponse updatedStore = storeService.updateStore(store_id, storeRequest);
+//        return ApiResponse.of("message", updatedStore);
+//    }
+//
+//    // 음식점 삭제(OWNER, MANAGER, MASTER)
+//    @DeleteMapping("/{store_id}")
+//    public ApiResponse<Void> deleteStore(@PathVariable String store_id) {
+//        storeService.deleteStore(store_id);
+//        return ApiResponse.of("message", null);
+//    }
+//}

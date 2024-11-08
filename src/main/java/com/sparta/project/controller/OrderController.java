@@ -1,57 +1,68 @@
-package com.sparta.project.controller;
-
-import com.sparta.project.dto.OrderRequest;
-import com.sparta.project.dto.OrderResponse;
-import com.sparta.project.service.OrderService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-@RestController
-@RequiredArgsConstructor
-@RequestMapping("/orders")
-public class OrderController {
-
-    private OrderService orderService;
-
-    // 자신의 주문내역 목록 조회
-    @GetMapping("/my")
-    public List<OrderResponse> getMyOrders(
-            @RequestParam(required = false) Integer page,
-            @RequestParam(required = false) Integer size,
-            @RequestParam(required = false) String sortBy
-    ) {
-        return orderService.getMyOrders(page, size, sortBy);
-    }
-
-    // 주문내역 상세 조회
-    @GetMapping("/{order_id}")
-    public OrderResponse getOrderById(@PathVariable String order_id) {
-        return orderService.getOrderById(order_id);
-    }
-
-    // 고객의 주문내역 목록 조회
-    @GetMapping("/users/{user_id}")
-    public List<OrderResponse> getOrdersByUser(@PathVariable String user_id) {
-        return orderService.getOrdersByUser(user_id);
-    }
-
-    // 주문 요청
-    @PostMapping
-    public OrderResponse placeOrder(@RequestBody OrderRequest orderRequest) {
-        return orderService.placeOrder(orderRequest);
-    }
-
-    // 주문 승인
-    @PostMapping("/{order_id}")
-    public OrderResponse updateOrder(@PathVariable String order_id, @RequestBody OrderRequest orderRequest) {
-        return orderService.updateOrder(order_id, orderRequest);
-    }
-
-    // 주문 취소
-    @DeleteMapping("/{order_id}")
-    public void deleteOrder(@PathVariable String order_id) {
-        orderService.cancelOrder(order_id);
-    }
-}
+//package com.sparta.project.controller;
+//
+//import com.sparta.project.dto.OrderRequest;
+//import com.sparta.project.dto.OrderResponse;
+//import com.sparta.project.dto.ApiResponse;
+//import com.sparta.project.dto.PageResponse;
+//import com.sparta.project.service.OrderService;
+//import lombok.RequiredArgsConstructor;
+//import org.springframework.web.bind.annotation.*;
+//
+//@RestController
+//@RequiredArgsConstructor
+//@RequestMapping("/orders")
+//public class OrderController {
+//
+//    private final OrderService orderService;
+//
+//    // 자신의 주문내역 목록 조회(CUSTOMER)
+//    @GetMapping("/my")
+//    public ApiResponse<PageResponse<OrderResponse>> getMyOrders(
+//            @RequestParam("page") int page,
+//            @RequestParam("size") int size,
+//            @RequestParam("sortBy") String sortBy) {
+//        Page<OrderResponse> orders = orderService.getMyOrders(page, size, sortBy);
+//        return ApiResponse.of("message", PageResponse.of(orders));
+//    }
+//
+//    // 주문내역 상세 조회(CUSTOMER)
+//    @GetMapping("/{order_id}")
+//    public ApiResponse<OrderResponse> getOrderById(@PathVariable String order_id) {
+//        OrderResponse order = orderService.getOrderById(order_id);
+//        return ApiResponse.of("message", order);
+//    }
+//
+//    // 고객의 주문내역 목록 조회(OWNER, MANAGER, MASTER)
+//    @GetMapping("/users")
+//    public ApiResponse<PageResponse<OrderResponse>> getAllOrdersByUser(
+//            @RequestParam Long userId,
+//            @RequestParam("page") int page,
+//            @RequestParam("size") int size,
+//            @RequestParam("sortBy") String sortBy) {
+//        Page<OrderResponse> orders = orderService.getAllOrdersByUser(userId, page, size, sortBy);
+//        return ApiResponse.of("message", PageResponse.of(orders));
+//    }
+//
+//    // 주문 요청(CUSTOMER, OWNER)
+//    @PostMapping
+//    public ApiResponse<OrderResponse> createOrder(@RequestBody OrderRequest orderRequest) {
+//        OrderResponse madeOrder = orderService.createOrder(orderRequest);
+//        return ApiResponse.of("message", madeOrder);
+//    }
+//
+//    // 주문 승인(OWNER)
+//    @PatchMapping("/{order_id}")
+//    public ApiResponse<OrderResponse> updateOrderStatus(
+//            @PathVariable String order_id,
+//            @RequestBody OrderRequest orderRequest) {
+//        OrderResponse updatedOrder = orderService.updateOrderStatus(order_id, orderRequest);
+//        return ApiResponse.of("message", updatedOrder);
+//    }
+//
+//    // 주문 취소(CUSTOMER, OWNER)
+//    @DeleteMapping("/{order_id}")
+//    public ApiResponse<Void> deleteOrder(@PathVariable Long order_id) {
+//        orderService.deleteOrder(order_id);
+//        return ApiResponse.of("message", null);
+//    }
+//}

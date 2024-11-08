@@ -1,49 +1,69 @@
-package com.sparta.project.controller;
-
-import com.sparta.project.dto.UserLoginRequest;
-import com.sparta.project.dto.UserRegisterRequest;
-import com.sparta.project.dto.UserUpdateRequest;
-import com.sparta.project.dto.UserResponse;
-import com.sparta.project.service.UserService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-@RestController
-@RequiredArgsConstructor
-@RequestMapping("/users")
-public class UserController {
-
-    private UserService userService;
-
-    // 회원가입
-    @PostMapping("/signup")
-    public UserResponse registerUser(@RequestBody UserRegisterRequest userRequest) {
-        return userService.registerUser(userRequest);
-    }
-
-    // 로그인
-    @PostMapping("/login")
-    public UserResponse login(@RequestBody UserLoginRequest loginRequest) {
-        return userService.login(loginRequest);
-    }
-
-    // 모든 회원 정보 불러오기
-    @GetMapping
-    public List<UserResponse> getAllUsers() {
-        return userService.getAllUsers();
-    }
-
-    // 회원정보 수정
-    @PatchMapping("/{user_id}")
-    public UserResponse updateUser(@PathVariable String user_id, @RequestBody UserUpdateRequest updateRequest) {
-        return userService.updateUser(user_id, updateRequest);
-    }
-
-    // 회원 탈퇴
-    @DeleteMapping("/{user_id}")
-    public void deleteUser(@PathVariable String user_id) {
-        userService.deleteUser(user_id);
-    }
-}
+//package com.sparta.project.controller;
+//
+//import com.sparta.project.dto.CreateUserRequest;
+//import com.sparta.project.dto.LoginUserRequest;
+//import com.sparta.project.dto.UpdateUserRequest;
+//import com.sparta.project.dto.UserResponse;
+//import com.sparta.project.dto.ApiResponse;
+//import com.sparta.project.dto.PageResponse;
+//import com.sparta.project.service.UserService;
+//import lombok.RequiredArgsConstructor;
+//import org.springframework.web.bind.annotation.*;
+//
+//@RestController
+//@RequiredArgsConstructor
+//@RequestMapping("/users")
+//public class UserController {
+//
+//    private final UserService userService;
+//
+//    // 회원가입(ALL)
+//    @PostMapping("/signup")
+//    public ApiResponse<UserResponse> signUp(@RequestBody CreateUserRequest createUserRequest) {
+//        UserResponse userResponse = userService.createUser(createUserRequest);
+//        return ApiResponse.of("message", userResponse);
+//    }
+//
+//    // 로그인(ALL)
+//    @PostMapping("/login")
+//    public ApiResponse<String> login(@RequestBody LoginUserRequest loginUserRequest) {
+//        String token = userService.loginUser(loginUserRequest);
+//        return ApiResponse.of("message", token);
+//    }
+//
+//    // 전체 유저 조회(MANAGER, MASTER)
+//    @GetMapping
+//    public ApiResponse<PageResponse<UserResponse>> getAllUsers(
+//            @RequestParam("username") String username,
+//            @RequestParam("role") String role,
+//            @RequestParam("page") int page,
+//            @RequestParam("size") int size,
+//            @RequestParam("sortBy") String sortBy
+//    ) {
+//        Page<UserResponse> allUsers = userService.getAllUsers(username, role, page, size, sortBy);
+//        return ApiResponse.of("message", PageResponse.of(allUsers));
+//    }
+//
+//    // 유저 단건 조회(MANAGER, MASTER)
+//    @GetMapping("/{user_id}")
+//    public ApiResponse<UserResponse> getUserById(@PathVariable Long user_id) {
+//        UserResponse userInfo = userService.getUserById(user_id);
+//        return ApiResponse.of("message", userInfo);
+//    }
+//
+//    // 회원정보 수정(ALL)
+//    @PatchMapping("/{user_id}")
+//    public ApiResponse<UserResponse> updateUser(
+//            @PathVariable Long user_id,
+//            @RequestBody UpdateUserRequest updateUserRequest) {
+//        UserResponse updatedUser = userService.updateUser(user_id, updateUserRequest);
+//        return ApiResponse.of("message", updatedUser);
+//    }
+//
+//    // 회원 탈퇴(ALL)
+//    @DeleteMapping("/{user_id}")
+//    public ApiResponse<Void> deleteUser(@PathVariable Long user_id) {
+//        userService.deleteUser(user_id);
+//        return ApiResponse.of("message", null);
+//    }
+//}
