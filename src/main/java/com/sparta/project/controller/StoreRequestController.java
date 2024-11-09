@@ -29,7 +29,6 @@
 //    @GetMapping("/my/{request_id}")
 //    public ApiResponse<PageResponse<StoreRequestResponse>> getStoreRequestById(
 //            @PathVariable String request_id,
-//            @RequestParam("page") int page,
 //            @RequestParam("size") int size,
 //            @RequestParam("sortBy") String sortBy) {
 //        Page<StoreRequestResponse> myRequest = storeRequestService.getStoreRequestById(request_id, page, size, sortBy);
@@ -50,7 +49,6 @@
 //    @GetMapping("/{request_id}")
 //    public ApiResponse<PageResponse<StoreRequestResponse>> getStoreRequestById(
 //            @PathVariable String request_id,
-//            @RequestParam("page") int page,
 //            @RequestParam("size") int size,
 //            @RequestParam("sortBy") String sortBy) {
 //        Page<StoreRequestResponse> storeRequest = storeRequestService.getStoreRequestById(request_id, page, size, sortBy);
