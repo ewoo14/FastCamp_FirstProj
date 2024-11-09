@@ -1,9 +1,9 @@
 //package com.sparta.project.controller;
 //
-//import com.sparta.project.dto.AIRequest;
-//import com.sparta.project.dto.AIResponse;
-//import com.sparta.project.dto.ApiResponse;
-//import com.sparta.project.dto.PageResponse;
+//import com.sparta.project.dto.ai.AIRequest;
+//import com.sparta.project.dto.ai.AIResponse;
+//import com.sparta.project.dto.common.ApiResponse;
+//import com.sparta.project.dto.common.PageResponse;
 //import com.sparta.project.service.AIService;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@
 //    @PostMapping("/menu-description")
 //    public ApiResponse<AIResponse> createMenuDescription(@RequestBody AIRequest aiRequest) {
 //        AIResponse madeDescription = aiService.createMenuDescription(aiRequest);
-//        return ApiResponse.of("message", madeDescription);
+//        return ApiResponse.success(madeDescription);
 //    }
 //
 //    // 생성한 설명 목록 조회
@@ -30,6 +30,6 @@
 //            @RequestParam("size") int size,
 //            @RequestParam("sortBy") String sortBy) {
 //        Page<AIResponse> descriptions = aiService.getMenuDescriptions(menuId, page, size, sortBy);
-//        return ApiResponse.of("message", PageResponse.of(descriptions));
+//        return ApiResponse.success(PageResponse.of(descriptions));
 //    }
 //}
